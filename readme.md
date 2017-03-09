@@ -4,14 +4,14 @@ Laravel API Authentication (Passport) sample application
 
 
 
-[![Build Status](https://travis-ci.org/gazatem/API-Authentication-Passport.svg?branch=master)](https://travis-ci.org/gazatem/API-Authentication-Passport)
+[![Build Status](https://travis-ci.org/gazatem/api-authentication-passport.svg?branch=master)](https://travis-ci.org/gazatem/api-authentication-passport)
 
 After cloning the repository, do not forget to run migrations and seeds. I've used Laravel Offical Vagrant to develop and test it.
 
 
 Clone then repository:
 
-    https://github.com/gazatem/API-Authentication-Passport.git
+    https://github.com/gazatem/api-authentication-passport.git
 
 
 Run the composer to install dependencies:
