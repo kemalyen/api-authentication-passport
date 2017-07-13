@@ -7,19 +7,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Book;
+use App\Transformers\BookTransformer;
+use League\Fractal;
+use League\Fractal\Manager;
 
 
-class ApiBookController extends Controller
+class ApiBookController extends ApiController
 {
     public function index()
     {
         $books = Book::all();
-        return response()->json(compact('books'));
+        return $this->response->withCollection($books, new BookTransformer);
     }
 
     public function show(Book $book)
     {
-        return response()->json(compact('book'));
+        return $this->response->withItem($book, new BookTransformer);
     }
 
 }

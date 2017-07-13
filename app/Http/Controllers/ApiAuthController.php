@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use App\Http\Requests\CreateUserRequest;
 
 
 class ApiAuthController extends Controller
@@ -35,6 +36,12 @@ class ApiAuthController extends Controller
         $token = $user->createToken('Token Name')->accessToken;
 
         return response()->json(compact('token'));
+    }
 
+    public function create(CreateUserRequest $request)
+    {
+        $data = $request->only(['name', 'email', 'password']);
+        $user = User::create(['name' => $data['name'], 'email' => bcrypt($data['password']), 'password' => $data['password'] ]);
+        return response()->json(compact('token'));
     }
 }
